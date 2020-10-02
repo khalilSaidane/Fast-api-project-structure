@@ -6,9 +6,12 @@ from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     app_name: str = "Catalogapi"
-    prefix: str = "v2"
+    prefix: str = "/v2"
     database_url: str
+    secret_key: str
     allowed_hosts: List[str] = []
+    debug: bool = True
+    version: str = "0.0.0"
 
     class Config:
         env_file = '.env'
