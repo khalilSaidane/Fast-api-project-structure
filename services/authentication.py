@@ -6,7 +6,7 @@ settings = get_settings()
 
 
 class AuthenticationService(BaseService):
-    repo = UserRepository
+    repo_class = UserRepository
 
     def authenticate(self, email: str, password: str):
         user = self.repository.get_user_by_email_and_password(email=email, password=password)

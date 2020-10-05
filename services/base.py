@@ -2,7 +2,7 @@ from db.repositories.base import BaseRepository
 
 
 class BaseService(object):
-    repo = None
+    repo_class = None
 
     def __init__(self, repository: BaseRepository):
         self._repository = repository

@@ -8,16 +8,15 @@ setting = get_settings()
 
 class UserRepository(BaseRepository):
 
-    def create_user(self, user: UserCreateSchema):
-        fake_hashed_password = user.password + setting.secret_key
-        user = User(email=user.email, hashed_password=fake_hashed_password)
+    async def create_user(self, user: UserCreateSchema):
+        user = User(email=user.email, hashed_password=user.password)
         self.session.add(user)
         self.session.commit()
-        self.session.refresh(user)
+        user = await self.session.refresh(user)
         return user
 
     def retrieve_user_by_id(self, id: int):
-        return self.session.query(User).filter(User.id == id).first()
+        return self.session.query(User).get(id)
 
     def update_user(self, id: int, new_user: User):
         user = self.retrieve_user_by_id(id)
@@ -34,3 +33,9 @@ class UserRepository(BaseRepository):
 
     def get_user_by_email_and_password(self, email: str, password: str):
         return self.session.query(User).filter_by(email=email, hashed_password=password).first()
+
+    def get_user_by_email(self, email: str):
+        return self.session.query(User).filter(User.email == email).first()
+
+    def get_all_users(self):
+        return self.session.query(User).all()

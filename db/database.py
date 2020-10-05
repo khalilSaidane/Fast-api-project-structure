@@ -14,6 +14,7 @@ def get_db():
     )
     SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
     db = SessionLocal()
+    print(db)
     try:
         yield db
     finally:
