@@ -8,11 +8,11 @@ setting = get_settings()
 
 class UserRepository(BaseRepository):
 
-    async def create_user(self, user: UserCreateSchema):
+    def create_user(self, user: UserCreateSchema):
         user = User(email=user.email, hashed_password=user.password)
         self.session.add(user)
         self.session.commit()
-        user = await self.session.refresh(user)
+        self.session.refresh(user)
         return user
 
     def retrieve_user_by_id(self, id: int):
