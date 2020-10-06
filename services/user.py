@@ -12,11 +12,10 @@ settings = get_settings()
 
 
 class UserService(BaseService):
-    repositories = {
-        "user_repository": UserRepository,
-        "item_repository": ItemRepository
-    }
+    # The Order must follow the same order in the constructor
+    repositories = [UserRepository, ItemRepository]
 
+    # def __init__(self, user_repository: repositories[0], item_repository: repositories[1]):
     def __init__(self, user_repository: UserRepository, item_repository: ItemRepository):
         self._user_repository = user_repository
         self._item_repository = item_repository
