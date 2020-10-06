@@ -1,8 +1,8 @@
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from core.config import get_settings
 from api.routers.api import api_router
-
+from api.dependencies.security import has_permission
 settings = get_settings()
 
 
@@ -10,7 +10,7 @@ def get_application():
     application = FastAPI(
         title=settings.app_name,
         debug=settings.debug,
-        version=settings.version
+        version=settings.version,
     )
 
     # application.add_middleware(

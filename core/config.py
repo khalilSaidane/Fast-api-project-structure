@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     allowed_hosts: List[str] = []
     debug: bool = True
     version: str = "0.0.0"
+    valid_requestor_ids = ['test']
 
     class Config:
         env_file = '.env'
