@@ -10,9 +10,9 @@ class Settings(BaseSettings):
     database_url: str
     secret_key: str
     allowed_hosts: List[str] = []
-    debug: bool = True
+    debug: bool = False
     version: str = "0.0.0"
-    valid_requestor_ids = ['test']
+    requester_id_test = ['test']
 
     class Config:
         env_file = '.env'

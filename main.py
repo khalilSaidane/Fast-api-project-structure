@@ -2,7 +2,6 @@ import uvicorn
 from fastapi import FastAPI, Depends
 from core.config import get_settings
 from api.routers.api import api_router
-from api.dependencies.security import has_permission
 settings = get_settings()
 
 
