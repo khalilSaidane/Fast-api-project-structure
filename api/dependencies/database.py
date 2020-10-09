@@ -40,8 +40,12 @@ def get_service(service_type: Type[BaseService]):
     :param service_type: Service Class that inherits from BaseService.
     :return: An instance of the service, and pass the repositories to the constructor.
     """
+    repository_classes = [
+        Repo for Repo in service_type.__init__.__annotations__.values()
+        if BaseRepository in Repo.__bases__
+    ]
 
-    def _get_service(repositories: Type[List[BaseRepository]] = Depends(get_repositories(*service_type.repositories))):
+    def _get_service(repositories: Type[List[BaseRepository]] = Depends(get_repositories(*repository_classes))):
         return service_type(*repositories)
 
     return _get_service
