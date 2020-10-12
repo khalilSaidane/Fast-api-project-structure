@@ -1,15 +1,14 @@
 import uvicorn
-from fastapi import FastAPI, Depends
-from core.config import get_settings
+from fastapi import FastAPI
 from api.routers.api import api_router
-settings = get_settings()
+from core import settings
 
 
 def get_application():
     application = FastAPI(
-        title=settings.app_name,
-        debug=settings.debug,
-        version=settings.version,
+        title=settings.APP_NAME,
+        debug=settings.DEBUG,
+        version=settings.VERSION,
     )
 
     # application.add_middleware(
@@ -25,7 +24,7 @@ def get_application():
     #
     # application.add_exception_handler(HTTPException, http_error_handler)
     # application.add_exception_handler(RequestValidationError, http422_error_handler)
-    application.include_router(api_router, prefix=settings.prefix)
+    application.include_router(api_router, prefix=settings.PREFIX)
     return application
 
 

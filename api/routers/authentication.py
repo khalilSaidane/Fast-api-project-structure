@@ -3,8 +3,6 @@ from fastapi import APIRouter, Depends
 from api.dependencies.database import get_service
 from models.schemas import UserCreateSchema
 from services.authentication import AuthenticationService
-from core.config import get_settings
-settings = get_settings()
 
 router = APIRouter()
 

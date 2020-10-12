@@ -1,14 +1,10 @@
-from fastapi import Depends
-
-from core.config import get_settings
 from db.errors import EmailAlreadyExists
 from db.repositories.item import ItemRepository
 from db.repositories.user import UserRepository
 from models.schemas import UserCreateSchema
 from resources import strings
 from services.base import BaseService
-
-settings = get_settings()
+from core import settings
 
 
 class UserService(BaseService):
@@ -27,7 +23,7 @@ class UserService(BaseService):
     def create_user(self, user: UserCreateSchema):
         if self.user_repository.get_user_by_email(email=user.email):
             raise EmailAlreadyExists(strings.EMAIL_ALREADY_REGISTERED_ERROR)
-        user.password = user.password + settings.secret_key
+        user.password = user.password + settings.SECRET_KEY
         return self.user_repository.create_user(user=user)
 
     def get_all_users(self):

@@ -1,9 +1,6 @@
 from .base import BaseRepository
 from models.schemas import UserCreateSchema
 from models.models import User
-from core.config import get_settings
-
-setting = get_settings()
 
 
 class UserRepository(BaseRepository):

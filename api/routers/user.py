@@ -4,7 +4,6 @@ from fastapi import APIRouter, Depends, HTTPException
 from fastapi_utils.cbv import cbv
 
 from api.dependencies.database import get_service
-from core.config import get_settings
 from db.errors import EmailAlreadyExists
 from models.schemas import UserCreateSchema, UserOutSchema
 from services.user import UserService
@@ -16,7 +15,6 @@ class UserPermission(CatalogAPIBasePermission):
     perms = ["Some-Permission"]
 
 
-settings = get_settings()
 router = APIRouter()
 
 
