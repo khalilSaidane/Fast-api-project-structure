@@ -23,7 +23,7 @@ class UserService(BaseService):
     def create_user(self, user: UserCreateSchema):
         if self.user_repository.get_user_by_email(email=user.email):
             raise EmailAlreadyExists(strings.EMAIL_ALREADY_REGISTERED_ERROR)
-        user.password = user.password + settings.SECRET_KEY
+        user.password = user.password + str(settings.SECRET_KEY)
         return self.user_repository.create_user(user=user)
 
     def get_all_users(self):
