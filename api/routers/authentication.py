@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 
-from api.dependencies.database import get_service
+from api.dependencies.service import get_service
 from models.schemas import UserCreateSchema
 from services.authentication import AuthenticationService
 

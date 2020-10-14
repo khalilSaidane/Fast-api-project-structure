@@ -3,7 +3,7 @@ from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi_utils.cbv import cbv
 
-from api.dependencies.database import get_service
+from api.dependencies.service import get_service
 from db.errors import EmailAlreadyExists
 from models.schemas import UserCreateSchema, UserOutSchema
 from services.user import UserService
