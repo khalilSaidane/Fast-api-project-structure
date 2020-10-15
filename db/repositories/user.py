@@ -22,6 +22,8 @@ class UserRepository(BaseRepository):
         user.hashed_password = new_user.hashed_password
         self.session.add(user)
         self.session.commit()
+        self.session.refresh(user)
+        return user
 
     def delete_user(self, id: int):
         user = self.retrieve_user_by_id(id)

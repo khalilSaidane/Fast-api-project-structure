@@ -1,4 +1,4 @@
-from ...vcr_helper import vcr
+from test.utils.vcr_helper import vcr
 import requests
 from urllib.request import urlopen
 
@@ -37,7 +37,7 @@ def test_do_nothing():
     print("Doing nothing")
     resp = requests.get("https://reqres.in/api/users")
 
-    print(resp.json())
+    assert resp.status_code == 200
 
 
 @vcr.use_cassette()
