@@ -11,16 +11,16 @@ router = APIRouter()
 
 
 @cbv(router)
-class UserBaseView:
-    service: ItemService = Depends(get_service(ItemService))
+class ItemRouter:
+    item_service: ItemService = Depends(get_service(ItemService))
 
     @router.post("/", response_model=ItemSchema)
     async def create_item(self, item: ItemCreateSchema):
-        return self.service.create(item=item)
+        return self.item_service.create(item=item)
 
     @router.get("/{id}", response_model=ItemSchema)
     async def get_item(self, id: int):
-        item = self.service.get(id=id)
+        item = self.item_service.get(id=id)
         if not item:
             raise HTTPException(status_code=404, detail=strings.OBJECT_DOES_NOT_EXIST_ERROR)
         return item
@@ -28,6 +28,6 @@ class UserBaseView:
     @router.delete('/{id}', response_model=ItemSchema)
     async def remove_item(self, id: int):
         try:
-            return self.service.remove(id=id)
+            return self.item_service.remove(id=id)
         except UnmappedInstanceError:
             raise HTTPException(status_code=404, detail=strings.OBJECT_DOES_NOT_EXIST_ERROR)

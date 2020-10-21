@@ -19,7 +19,7 @@ router = APIRouter()
 
 
 @cbv(router)
-class UserBaseView:
+class UserRouter:
     service: UserService = Depends(get_service(UserService))
     permission: CatalogAPIBasePermission = Depends(UserPermission())
 

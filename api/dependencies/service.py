@@ -7,12 +7,12 @@ from db.repositories.base import BaseRepository
 from services.base import BaseService
 
 
-# Every service depends on a list of repositories provided by get_repositories
+# Every item_service depends on a list of repositories provided by get_repositories
 def get_service(service_type: Type[BaseService]):
     """
 
     :param service_type: Service Class that inherits from BaseService.
-    :return: An instance of the service, and pass the repositories to the constructor.
+    :return: An instance of the item_service, and pass the repositories to the constructor.
     """
     repository_classes = [
         Repo for Repo in service_type.__init__.__annotations__.values()
