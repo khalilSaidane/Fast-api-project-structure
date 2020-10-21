@@ -1,10 +1,6 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, engine_from_config
 from sqlalchemy.orm import sessionmaker
 from core import settings
-from db.utils import Database
 
-database = Database(**settings.DATABASES['default'])
-engine = create_engine(
-    database.get_url(), connect_args=database.get_connect_args()
-)
+engine = create_engine(str(settings.DATABASE_URL),  connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

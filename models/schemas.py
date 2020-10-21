@@ -14,7 +14,7 @@ class ItemCreateSchema(ItemBaseSchema):
 
 class ItemSchema(ItemBaseSchema):
     id: int
-    owner_id: int
+    owner_id: Optional[int] = None
 
     class Config:
         orm_mode = True
@@ -25,7 +25,7 @@ class UserBaseSchema(BaseModel):
 
 
 class UserCreateSchema(UserBaseSchema):
-    password: str
+    hashed_password: str
 
 
 class UserOutSchema(UserBaseSchema):

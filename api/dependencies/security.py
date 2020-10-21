@@ -6,6 +6,7 @@ from resources import strings
 from fastapi.security.api_key import APIKeyHeader
 
 from core import settings
+
 key_header_requester_id = APIKeyHeader(name="requester-id", scheme_name="Requestor-Id")
 key_head_correlation_id = APIKeyHeader(name="correlation_id", scheme_name="Correlation-Id", auto_error=False)
 key_header_root_correlation_id = APIKeyHeader(name="root_correlation_id", scheme_name="Root-Correlation-Id",
@@ -13,7 +14,6 @@ key_header_root_correlation_id = APIKeyHeader(name="root_correlation_id", scheme
 
 
 class CatalogAPIBasePermission:
-
     _white_list = [
         settings.REQUESTER_ID_TEST,
     ]

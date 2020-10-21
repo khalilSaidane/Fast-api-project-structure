@@ -1,5 +1,7 @@
-from db.repositories.base import BaseRepository
+from models.models import Item
+from models.schemas import ItemCreateSchema
+from .crud_base import CRUDBase
 
 
-class ItemRepository(BaseRepository):
-    pass
+class ItemRepository(CRUDBase[Item, ItemCreateSchema, ItemCreateSchema]):
+    model: Item = Item

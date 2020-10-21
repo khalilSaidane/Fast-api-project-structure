@@ -26,17 +26,17 @@ class UserBaseView:
     @router.post("/", response_model=UserOutSchema)
     async def create_user(self, user: UserCreateSchema):
         try:
-            return self.service.create_user(user=user)
+            return self.service.create(user=user)
         except EmailAlreadyExists:
             raise HTTPException(status_code=400, detail=strings.EMAIL_ALREADY_REGISTERED_ERROR)
 
     @router.get("/", response_model=List[UserOutSchema])
     async def get_all_users(self):
-        return self.service.get_all_users()
+        return self.service.get_multi()
 
     @router.get("/{id}", response_model=UserOutSchema)
     async def read_user(self, id: int):
-        user = self.service.get_user(id=id)
-        if user is None:
+        user = self.service.get(id=id)
+        if not user:
             raise HTTPException(status_code=404, detail=strings.USER_DOES_NOT_EXIST_ERROR)
         return user

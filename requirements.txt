@@ -42,3 +42,5 @@ vcrpy==4.1.1
 wrapt==1.12.1
 yarl==1.6.2
 zipp==3.3.0
+
+databases~=0.3.2

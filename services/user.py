@@ -20,14 +20,14 @@ class UserService(BaseService):
     def user_repository(self):
         return self._user_repository
 
-    def create_user(self, user: UserCreateSchema):
+    def create(self, user: UserCreateSchema):
         if self.user_repository.get_user_by_email(email=user.email):
             raise EmailAlreadyExists(strings.EMAIL_ALREADY_REGISTERED_ERROR)
-        user.password = user.password + str(settings.SECRET_KEY)
-        return self.user_repository.create_user(user=user)
+        user.hashed_password = user.hashed_password + str(settings.SECRET_KEY)
+        return self.user_repository.create(obj_in=user)
 
-    def get_all_users(self):
-        return self.user_repository.get_all_users()
+    def get_multi(self):
+        return self.user_repository.get_multi()
 
-    def get_user(self, id: int):
-        return self.user_repository.retrieve_user_by_id(id=id)
+    def get(self, id: int):
+        return self.user_repository.get(id=id)
