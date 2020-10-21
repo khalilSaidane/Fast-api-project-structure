@@ -1,10 +1,11 @@
-from db.repositories.item import ItemRepository
+from db.repositories.interfaces.item import IItemRepository
 from models.schemas import ItemCreateSchema
 from services.base import BaseService
+from services.interfaces.item import IItemService
 
 
-class ItemService(BaseService):
-    def __init__(self, item_reo: ItemRepository):
+class ItemServiceImpl(BaseService, IItemService):
+    def __init__(self, item_reo: IItemRepository):
         self.item_repository = item_reo
 
     def create(self, item: ItemCreateSchema):

@@ -1,3 +1,5 @@
 class BaseService:
-    repositories = []
+    """
+    Base class For services
+    """
 

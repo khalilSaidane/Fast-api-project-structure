@@ -5,14 +5,14 @@ from sqlalchemy.orm.exc import UnmappedInstanceError
 from api.dependencies.service import get_service
 from models.schemas import ItemSchema, ItemCreateSchema
 from resources import strings
-from services.item import ItemService
+from services.interfaces.item import IItemService
 
 router = APIRouter()
 
 
 @cbv(router)
 class ItemRouter:
-    item_service: ItemService = Depends(get_service(ItemService))
+    item_service: IItemService = Depends(get_service(IItemService))
 
     @router.post("/", response_model=ItemSchema)
     async def create_item(self, item: ItemCreateSchema):
