@@ -27,7 +27,6 @@ def get_application():
     application.include_router(api_router, prefix=settings.PREFIX)
     return application
 
-
 app = get_application()
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

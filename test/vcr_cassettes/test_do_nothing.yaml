@@ -11,61 +11,30 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://reqres.in/api/users
+    uri: http://10.193.13.67:9019/api/v0/subscriptions/?msisdn=41789302933
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA6XRTYvbMBAG4L8i5ixskm2X4lPbpbQUemkLeyhlmdhjWVlJ447Gdrch/73YWciS
-        kL3kIvTxvswD2kGPjqBaWehJHg6HWwvKigGq1fp5u7xkqNYWGlSE6tcOfLP0KKIPUIEjFkfFJgza
-        vRf6I5QLn8BC6yXrQ8JIUMHnJQUWAh4vP84dsIAjKgpU0Kn2uSrLfFNgxH+ccMpFzbEcfIs15fKw
-        6uRVScoaA23YNZTK1fpdse0d7O0BuD4Ct5hIi4lwJLkM/DqnTnz3S+cK4JYz9V1W8ufCm6OQYsRi
-        4uQu8z7FiKc6Tu4KGwdyPTtukMYz3JsXuJGKjoO+YhtPP/YLB72CFlFqFoxeKJ/R3h5pdYcSKBeR
-        RXy+DLw75E6Q35bWFcys1HeUIvP5794elSpY01MhGPkV488ldUL8PneuEG68i5jqjo++3xawgWoH
-        Ncce0xNU8ENRh3zHDZl7oscwKwYJz+PmaUug5oYKFleCBaW/ChV8MNNSMImmHGieaVquh+yTM5xM
-        5lYnFDINjRS4j5TUGp9awawy1DoIWaMdmUwykljTk7QsM5qswdQcHhXrR0OpMdwa7XxyuYD9/j8Z
-        mQBexQQAAA==
+        H4sIAAAAAAAAAM1UwYrbMBS85yuCzslaii078a2UHnpuKKVhMaqk7IraktGTU8ySf6+cREqMQ7PQ
+        Qws+2Hozb+Y9mXmbzedIMMdQOd+9+Q//Wau95D2vZQWOuQ58CX34uP389RNanBGMO3VgThldOdXI
+        AbDCJF9i/5AtycsMlyl9whh/D5TGaPda9xU34Dy+IE8b6uv4UnbSNkqPWuqurgMZFAg9yGSkWG9S
+        vNqkaeisoIIOWqmFFB6yZzXIRZhE/xzsnwfzB9D9AG5Ve9IRCrjptIORmEe1rJf2huaPXq3cD/oJ
+        a1VywAnvwJlGWkgIJkVGC4wWV7QajKB7Fde3p3VFPrrUjlEdVFNxZgWMHQTmtTwSHNA71FrVMNsv
+        aZZn62KDnheTEXZxhtgpmdAmpswv/S9XcnttF/wfnEzgkBRkamZ8Fvc7IT/wA9IeFJfwfk+Q0NU6
+        y1OanH7QJHZ4ZCcCJ446+F+up7VGdNz9xTpih0friMDgaHbj6zLSpXUIC2PVi8+Z2ueQdtbn2PCy
+        V7Y5Rw834iSTFnRLvqXkS+Dd0w8G3zdcANfMSXBX/VZaZUR1JwB9pq6ID9QlybckLbO0pPkoU2OP
+        86jpmuaUhp8aCWUld8b2Va3AKf0yYLTRcljX8Xl2/A3h5Wkr/AUAAA==
     headers:
-      Access-Control-Allow-Origin:
-      - '*'
-      Age:
-      - '6161'
-      CF-Cache-Status:
-      - HIT
-      CF-RAY:
-      - 5e308c59be0232bd-CDG
-      Cache-Control:
-      - max-age=14400
-      Connection:
-      - keep-alive
       Content-Encoding:
       - gzip
+      Content-Length:
+      - '496'
       Content-Type:
-      - application/json; charset=utf-8
+      - application/vnd.api+json; charset=UTF-8
       Date:
-      - Fri, 16 Oct 2020 08:53:13 GMT
-      Etag:
-      - W/"4c5-znzuruTKwnH4068T7ikF88YcCME"
-      Expect-CT:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-      NEL:
-      - '{"report_to":"cf-nel","max_age":604800}'
-      Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?lkg-colo=19&lkg-time=1602838394"}],"group":"cf-nel","max_age":604800}'
+      - Thu, 22 Oct 2020 14:35:56 GMT
       Server:
-      - cloudflare
-      Set-Cookie:
-      - __cfduid=d0f8cb75379cf77d5b294555d57cc0e951602838393; expires=Sun, 15-Nov-20
-        08:53:13 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Via:
-      - 1.1 vegur
-      X-Powered-By:
-      - Express
-      cf-request-id:
-      - 05d2360c0e000032bd290a0000000001
+      - BSS-API/1.1.4
     status:
       code: 200
       message: OK
